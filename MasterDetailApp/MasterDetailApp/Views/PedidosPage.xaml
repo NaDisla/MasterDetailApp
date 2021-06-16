@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterDetailApp.Views.PedidosPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Pedidos"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Margin="0,30,0,0"/>
+            <Label x:Name="txtTest"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   TextColor="Red"
+                   Margin="0,30,0,0"
+                   FontSize="18"/>
+            <ListView x:Name="ListaPedidos"
+                    SeparatorColor="DarkBlue"
+                    RowHeight="60"
+                    ItemSelected="ListaPedidos_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20,10,0,20">
+                                <Label Text="{Binding Cliente, StringFormat='Cliente: {0}'}"/>
+                                <Label Text="{Binding FechaPedido, StringFormat='Fecha: {0}'}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterDetailApp.Views.RegistroPedidosPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Registro de pedidos"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Margin="0,20,0,0"
+                   HorizontalTextAlignment="Center"/>
+            <StackLayout Margin="20,20,20,0">
+                <Entry Placeholder="Cliente" x:Name="txtCliente"/>
+                <Entry Placeholder="Producto" x:Name="txtProducto"/>
+                <Entry Placeholder="Precio unitario" x:Name="txtPrecioUnitario"
+                       Keyboard="Numeric"/>
+                <Entry Placeholder="Cantidad" x:Name="txtCantidad"
+                       Keyboard="Numeric"/>
+            </StackLayout>
+            <Grid Margin="20,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Button Text="Agregar producto"
+                        HorizontalOptions="Start"
+                        Padding="20,0"
+                        FontSize="18"
+                        CornerRadius="20"
+                        BackgroundColor="LightGreen"
+                        x:Name="btnAddProduct"
+                        Clicked="btnAddProduct_Clicked"/>
+                <Button Text="Finalizar pedido" 
+                        HorizontalOptions="End"
+                        CornerRadius="20"
+                        Padding="20,0"
+                        FontSize="18"
+                        BackgroundColor="DarkGreen"
+                        TextColor="White"
+                        x:Name="btnAddPedidoDetail"
+                        Clicked="btnAddPedidoDetail_Clicked"/>
+            </Grid>
+            <ListView x:Name="ListaDetailPedidos"
+                      SeparatorColor="Blue"
+                      RowHeight="110"
+                      ItemSelected="ListaDetailPedidos_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20,10,0,20">
+                                <Label Text="{Binding Producto, StringFormat='Producto: {0}'}"/>
+                                <Label Text="{Binding PrecioUnitario, StringFormat='Precio: RD${0}.00'}"/>
+                                <Label Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}"/>
+                                <Label Text="{Binding Total, StringFormat='Total: RD${0}.00'}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

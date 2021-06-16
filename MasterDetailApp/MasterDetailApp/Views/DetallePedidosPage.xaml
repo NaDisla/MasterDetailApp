@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterDetailApp.Views.DetallePedidosPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Detalle de pedidos"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Margin="20"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="Cliente: "
+                   x:Name="txtCliente"
+                   FontAttributes="Bold"
+                   FontSize="17"
+                   TextColor="CadetBlue"
+                   Margin="20,10"/>
+            <ListView x:Name="DetailPedido"
+                      RowHeight="110"
+                      SeparatorColor="Blue">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20,10,0,20">
+                                <Label Text="{Binding Producto, StringFormat='Producto: {0}'}"/>
+                                <Label Text="{Binding PrecioUnitario, StringFormat='Precio: RD${0}.00'}"/>
+                                <Label Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}"/>
+                                <Label Text="{Binding Total, StringFormat='Total: RD${0}.00'}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="Total de compra: RD$"
+                   x:Name="txtTotalOrden"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="Red"
+                   FontSize="15"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

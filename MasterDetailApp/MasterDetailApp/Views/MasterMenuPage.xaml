@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterDetailApp.Views.MasterMenuPage">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Master">
+            <StackLayout BackgroundColor="LightBlue">
+                <ListView x:Name="MenuList"
+                          ItemSelected="MenuList_ItemSelected"
+                          SeparatorColor="DarkCyan">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="celdaMenu" 
+                                Tapped="celdaMenu_Tapped">
+                                <StackLayout Padding="20,10,0,20">
+                                    <Label Text="{Binding Item}" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
